@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ReferenceImageLib
+  m_EditorClassIdentifier: 
+  m_GuidLow: 4875584036981381118
+  m_GuidHigh: 17597122328005674924
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5186228496829255833
+      m_GuidHigh: 4293855101090760119
+    m_SerializedTextureGuid:
+      m_GuidLow: 2640470111670822325
+      m_GuidHigh: 2584633317860217179
+    m_Size: {x: 0.081147544, y: 0.15}
+    m_SpecifySize: 1
+    m_Name: jandaiagoiabastevia
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4721539892457812081
+      m_GuidHigh: 8933900643022438547
+    m_SerializedTextureGuid:
+      m_GuidLow: 15804309725590593123
+      m_GuidHigh: 12194223453159153944
+    m_Size: {x: 0.12, y: 0.09318182}
+    m_SpecifySize: 1
+    m_Name: nissinmiojoturmadamonicagalinha
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4901805838133449254
+      m_GuidHigh: 15793287663245370782
+    m_SerializedTextureGuid:
+      m_GuidLow: 388713560115873507
+      m_GuidHigh: 5076665774903255851
+    m_Size: {x: 0.1, y: 0.1478645}
+    m_SpecifySize: 1
+    m_Name: unitedreamsbestrong
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4768131817448941796
+      m_GuidHigh: 6281104477953051045
+    m_SerializedTextureGuid:
+      m_GuidLow: 2937584910971571248
+      m_GuidHigh: 2477760503633146744
+    m_Size: {x: 0.08, y: 0.11706745}
+    m_SpecifySize: 1
+    m_Name: granadofolhalaranjeira
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4898023800532623980
+      m_GuidHigh: 1669488412251367837
+    m_SerializedTextureGuid:
+      m_GuidLow: 11485464913378849332
+      m_GuidHigh: 6580289849247762363
+    m_Size: {x: 0.08, y: 0.14703557}
+    m_SpecifySize: 1
+    m_Name: santaclarapremium250
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5406741016964622355
+      m_GuidHigh: 1555550512103037092
+    m_SerializedTextureGuid:
+      m_GuidLow: 16115211268575021586
+      m_GuidHigh: 11359048174756888779
+    m_Size: {x: 0.14, y: 0.161}
+    m_SpecifySize: 1
+    m_Name: yokipipocapremium500
+    m_Texture: {fileID: 0}
