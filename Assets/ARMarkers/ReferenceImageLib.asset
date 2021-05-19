@@ -75,3 +75,13 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: yokipipocapremium500
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5329394268366404530
+      m_GuidHigh: 1768901678640063916
+    m_SerializedTextureGuid:
+      m_GuidLow: 5905610786990515589
+      m_GuidHigh: 14434239627251090987
+    m_Size: {x: 0.065, y: 0.08814394}
+    m_SpecifySize: 1
+    m_Name: cremedeleitebetania200
+    m_Texture: {fileID: 0}

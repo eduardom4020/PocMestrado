@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5199983661925035574}
-  - component: {fileID: -3632628602868710082}
+  - component: {fileID: 2707230365083438710}
   - component: {fileID: -2437443403560552016}
   - component: {fileID: 1428929865864602103}
+  - component: {fileID: -2822763008728497872}
   m_Layer: 0
   m_Name: PhysicalRepresentationPrefab
   m_TagString: Untagged
@@ -33,8 +34,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &-3632628602868710082
-CapsuleCollider:
+--- !u!135 &2707230365083438710
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -43,9 +44,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-2437443403560552016
 Rigidbody:
@@ -75,7 +75,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddef65a035228804483a395684305f90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestPrefab: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
   MarkersTargets:
   - MarkerName: nissinmiojoturmadamonicagalinha
     Prefab: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
@@ -89,3 +88,23 @@ MonoBehaviour:
     Prefab: {fileID: 63551198096578092, guid: 653f43dad3ed31541ade2b9b0c6308b1, type: 3}
   - MarkerName: yokipipocapremium500
     Prefab: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
+  - MarkerName: cremedeleitebetania200
+    Prefab: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
+  - MarkerName: leitecondensadobetania395
+    Prefab: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
+--- !u!114 &-2822763008728497872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2847674433930838784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f41df1ccf8611742bbeaeeb5c1fc704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CombinedRepresentations:
+  - PrefabA: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
+    PrefabB: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
+    CombinedRepresentation: {fileID: 2497849572246210711, guid: aa39d0e34eeee1147b73a7be2d79c88e, type: 3}

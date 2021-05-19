@@ -23,19 +23,13 @@ namespace POCMestrado.Assets.Components.ARManagers
         void Start()
         {
             logger = GameObject.Find("Logger").GetComponent<Text>();
-            logger.text = $"{logger.text}\nInicializou CombinedRepresentationManager!";
-            logger.SetAllDirty();
         }
 
         public GameObject GetCombinedRepresentation(GameObject objA, GameObject objB)
         {
-            var prefabs = new List<GameObject>() 
-            { 
-                PrefabUtility.GetCorrespondingObjectFromSource(objA), 
-                PrefabUtility.GetCorrespondingObjectFromSource(objB) 
-            };
+            var prefabs = new List<GameObject>() { objA, objB };
 
-            var match = CombinedRepresentations?.FirstOrDefault(t => prefabs.All(p => p == t.PrefabA || p == t.PrefabB));
+            var match = CombinedRepresentations?.FirstOrDefault(t => prefabs.All(p => p.tag == t.PrefabA.tag || p.tag == t.PrefabB.tag));
 
             if (match != null && match.HasValue)
             {
