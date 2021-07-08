@@ -85,3 +85,23 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: cremedeleitebetania200
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5634355156680400677
+      m_GuidHigh: 16441676787895457163
+    m_SerializedTextureGuid:
+      m_GuidLow: 5527177050432523681
+      m_GuidHigh: 9848673950226092200
+    m_Size: {x: 0.061833333, y: 0.105}
+    m_SpecifySize: 1
+    m_Name: clubsocialoriginal24
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5017508211702538316
+      m_GuidHigh: 3646687521298199736
+    m_SerializedTextureGuid:
+      m_GuidLow: 2838533390556532302
+      m_GuidHigh: 3728643343523064665
+    m_Size: {x: 0.12486486, y: 0.21}
+    m_SpecifySize: 1
+    m_Name: doritosbuffalowings84
+    m_Texture: {fileID: 0}
