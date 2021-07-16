@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace u2vis
@@ -78,6 +80,7 @@ namespace u2vis
                 startAngle = endAngle;
                 vertices.AddRange(partMesh);
             }
+
             var mesh = new Mesh();
             mesh.name = "PieChart2DMesh";
             mesh.vertices = vertices.ToArray();

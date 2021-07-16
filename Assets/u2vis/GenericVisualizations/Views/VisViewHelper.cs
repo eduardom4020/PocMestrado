@@ -49,6 +49,7 @@ namespace u2vis
             }
             return dim.GetStringValue(itemIndex);
         }
+
         public static float GetGlobalMaximum(GenericDataPresenter presenter)
         {
             float max = float.MinValue;
@@ -60,6 +61,7 @@ namespace u2vis
                 if (numDim.MaximumFloatValue > max)
                     max = numDim.MaximumFloatValue;
             }
+
             return max;
         }
 
