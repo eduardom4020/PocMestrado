@@ -117,7 +117,7 @@ namespace u2vis
         /// <returns>the new Enumerator.</returns>
         public IEnumerator<DataDimension> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return _dimensions.GetEnumerator();
         }
         /// <summary>
         /// Get a new Enumerator for this data set.

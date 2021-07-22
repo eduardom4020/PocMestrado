@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
 using u2vis.Utilities;
+using UnityEngine;
 
 namespace u2vis
 {
@@ -51,6 +51,14 @@ namespace u2vis
                 Debug.LogError("Presenter is either null or has not enough dimensions to represent this visualization");
                 return;
             }
+
+            var ticksX = GetCategoricalXAxisTicks();
+            if(ticksX.Count() > 5)
+            {
+                Debug.LogError("Maximum categories limit exceded. The currrent maximum is 5");
+                return;
+            }
+
             if (_dataItemMesh == null)
             {
                 _dataItemMesh = buildCircleMesh();
@@ -63,53 +71,50 @@ namespace u2vis
             var tUVs = _dataItemMesh.uv;
             var tIndices = _dataItemMesh.triangles;
 
-            //int offset = _presenter.SelectedMinItem;
             float divisor = 0;
 
             MultiDimDataPresenter presenter = (MultiDimDataPresenter)_presenter;
-            //TODO find better way to determine divisor (what 100% is)
-            for (int valueIndex = 0; valueIndex < presenter[1].Count; valueIndex++)
+
+            for (int rowIndex = presenter.SelectedMinItem; rowIndex < presenter.SelectedMaxItem; rowIndex++)
             {
                 float sum = 0;
                 for (int dimIndex = 0; dimIndex < presenter.NumberOfDimensions; dimIndex++)
                 {
-                    sum += VisViewHelper.GetItemValueAbsolute(presenter, dimIndex, valueIndex);
+                    sum += VisViewHelper.GetItemValueAbsolute(presenter, dimIndex, rowIndex);
                 }
                 divisor = Mathf.Max(divisor, sum);
-                //Debug.Log("Div " + divisor);
             }
             float startHeight = 0;
             _divisor = divisor;
-            //Debug.Log(presenter.CaptionDimension.GetStringValue(ValueIndex));
 
-            for (int dimIndex = 0; dimIndex < _presenter.NumberOfDimensions; dimIndex++)
-            {
-                float dim;
-                if (_useMinIndex)
+            var barWidth = 0.7f / ticksX.Count();
+            var barsCenter = Enumerable.Range(0, presenter.TotalItemCount)
+                .Select(i => i >= presenter.SelectedMinItem && i < presenter.SelectedMaxItem ? ticksX[i - presenter.SelectedMinItem].Position : 0.0f)
+                .ToList();
+
+            for (int rowIndex = presenter.SelectedMinItem; rowIndex < presenter.SelectedMaxItem; rowIndex++)
+                for (int dimIndex = 0; dimIndex < _presenter.NumberOfDimensions; dimIndex++)
                 {
-                    dim = VisViewHelper.GetItemValueAbsolute(_presenter, dimIndex, _presenter.SelectedMinItem);
+                    if (dimIndex == 0)
+                        startHeight = 0;
+
+                    var dim = VisViewHelper.GetItemValueAbsolute(_presenter, dimIndex, rowIndex);
+                    float height = dim / divisor;
+
+                    var scale = new Vector3(barWidth, height * _size.y, _size.z);
+                    var startIndex = iMesh.Vertices.Count;
+                    foreach (var v in tVertices)
+                    {
+                        var vPos = new Vector3(barsCenter[rowIndex] - v.x * scale.x, startHeight * _size.y + v.y * scale.y, v.z * scale.z);
+                        iMesh.Vertices.Add(vPos);
+                        iMesh.Colors.Add(_style.GetColorCategorical(dimIndex, height));
+                    }
+                    iMesh.Normals.AddRange(tNromals);
+                    iMesh.TexCoords.AddRange(tUVs);
+                    foreach (var index in tIndices)
+                        iMesh.Indices.Add(startIndex + index);
+                    startHeight += height;
                 }
-                else
-                {
-                    dim = VisViewHelper.GetItemValueAbsolute(_presenter, dimIndex, _valueIndex);
-                }
-                float height = dim / divisor;
-                //Debug.Log(presenter[dimIndex].Name + " height " + height+ " dim " + dim +" div " + divisor);
-                //var pos = new Vector3(0, startHeight * _size.y, 0);
-                var scale = new Vector3(_size.x, height * _size.y, _size.z);
-                var startIndex = iMesh.Vertices.Count;
-                foreach (var v in tVertices)
-                {
-                    var vPos = new Vector3(v.x * scale.x, startHeight * _size.y + v.y * scale.y, v.z * scale.z);
-                    iMesh.Vertices.Add(vPos);
-                    iMesh.Colors.Add(_style.GetColorCategorical(dimIndex, height));
-                }
-                iMesh.Normals.AddRange(tNromals);
-                iMesh.TexCoords.AddRange(tUVs);
-                foreach (var index in tIndices)
-                    iMesh.Indices.Add(startIndex + index);
-                startHeight += height;
-            }
 
             var mesh = iMesh.GenerateMesh("StackedBarMesh", MeshTopology.Triangles);
             var meshFilter = GetComponent<MeshFilter>();
@@ -161,46 +166,42 @@ namespace u2vis
         }
         #endregion
 
-        protected override void SetupInitialAxisViews()
+        private AxisTick[] GetCategoricalXAxisTicks()
         {
-            DestroyAxisViews();
-            _axisViews = new List<GenericAxisView>();
-            // Generic X Axis
-            var vX = Instantiate(_axisViewPrefab, transform, false);
-            vX.AxisPresenter = _presenter.AxisPresenters[0];
-            var segmentStartList = GetSegmentStartList(new Vector3(1f, 0f, 0f));
-            vX.Length = segmentStartList[segmentStartList.Count - 1].x;
-            vX.transform.localRotation = Quaternion.Euler(0, 90, 90);
-            vX.transform.localPosition = new Vector3(vX.transform.localPosition.x, vX.transform.localPosition.y, vX.transform.localPosition.z - _size.z/1.8f);
-            _axisViews.Add(vX);
+            MultiDimDataPresenter presenter = (MultiDimDataPresenter)_presenter;
+            var xAxisDimensionName = presenter.AxisPresenters[0].Caption;
+            var xAxisDataset = _presenter.DataProvider.Data.FirstOrDefault(x => x.Name == xAxisDimensionName);
+
+            var ticksX = presenter.AxisPresenters[0].GenerateFromDimension(xAxisDataset, presenter.SelectedMinItem, presenter.SelectedMaxItem);
+
+            return ticksX;
         }
+
+        private string GetXAxisDimensionName()
+        {
+            MultiDimDataPresenter presenter = (MultiDimDataPresenter)_presenter;
+            var xAxisDimensionName = presenter.AxisPresenters[0].Caption;
+            return xAxisDimensionName;
+        }
+
         protected override void RebuildAxes()
         {
             if (_axisViews == null || _fromEditor)
                 SetupInitialAxisViews();
-            List<AxisTick> ticks = new List<AxisTick>();
-            var segmentStartList = GetSegmentStartList(new Vector3(1f, 0f, 0f));
-            ticks.Add(new AxisTick(0,"0"));
-            float oldValue = 0;
-            for (int index = 1; index <segmentStartList.Count; index++)
+
+            var ticksX = GetCategoricalXAxisTicks();
+            _axisViews[0].RebuildAxis(ticksX, GetXAxisDimensionName());
+
+            var ticksY = new AxisTick[]
             {
+                new AxisTick(0.10f, "10%"),
+                new AxisTick(0.25f, "25%"),
+                new AxisTick(0.5f, "50%"),
+                new AxisTick(0.75f, "75%"),
+                new AxisTick(0.9f, "90%")
+            };
 
-                if (_useMinIndex)
-                {
-                    float newValue = oldValue + VisViewHelper.GetItemValueAbsolute(_presenter, index - 1, _presenter.SelectedMinItem);
-                    ticks.Add(new AxisTick(segmentStartList[index].x / _axisViews[0].Length, newValue.ToString()));
-                    oldValue = newValue;
-                }
-                else
-                {
-                    float newValue = oldValue + VisViewHelper.GetItemValueAbsolute(_presenter, index - 1, _valueIndex);
-                    ticks.Add(new AxisTick(segmentStartList[index].x / _axisViews[0].Length, newValue.ToString()));
-                    oldValue = newValue;
-                }
-            }
-            //TODO: Find way to determine name of axis
-                _axisViews[0].RebuildAxis(ticks.ToArray());
-
+            _axisViews[1].RebuildAxis(ticksY, "%");
         }
 
         public virtual void Initialize(GenericDataPresenter presenter, GenericAxisView axisViewPrefab = null, GenericVisualizationStyle style = null, Mesh dataItemMesh = null)

@@ -11,7 +11,9 @@ namespace u2vis.InfoVis
         protected SerializedProperty
             multiDimPresenter_prop,
             dataItemMesh_prop,
-            useMinItem_prop;
+            useMinItem_prop,
+            maxBarsAmt_prop,
+            barMaxWidth_prop;
 
         protected override void OnEnable()
         {
@@ -19,6 +21,8 @@ namespace u2vis.InfoVis
             multiDimPresenter_prop = serializedObject.FindProperty("_multiDimPresenter");
             dataItemMesh_prop = serializedObject.FindProperty("_dataItemMesh");
             useMinItem_prop = serializedObject.FindProperty("_useMinIndex");
+            maxBarsAmt_prop = serializedObject.FindProperty("MaxBarsAmt");
+            barMaxWidth_prop = serializedObject.FindProperty("BarMaxWidth");
 
             _stackedBar = (StackedBar)serializedObject.targetObject;
         }

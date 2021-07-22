@@ -223,7 +223,7 @@ namespace u2vis
             if (_hasAxisLabel)
                 CreateAxisLabel(axisLabel);
 
-            GameObject.Destroy(meshFilter.sharedMesh);
+            GameObject.DestroyImmediate(meshFilter.sharedMesh);
             meshFilter.sharedMesh = iMesh.GenerateMesh("AxisTicksMesh", MeshTopology.Lines);
         }
         #endregion
