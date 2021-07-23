@@ -105,3 +105,23 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: doritosbuffalowings84
     m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5566577916102504014
+      m_GuidHigh: 2754777013905389474
+    m_SerializedTextureGuid:
+      m_GuidLow: 10778310428659607050
+      m_GuidHigh: 4032594777380556488
+    m_Size: {x: 0.10184557, y: 0.16}
+    m_SpecifySize: 1
+    m_Name: sopaomaggicostelaclegumes200g
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4698734211926058657
+      m_GuidHigh: 16512837488506808250
+    m_SerializedTextureGuid:
+      m_GuidLow: 2469168045660351824
+      m_GuidHigh: 5794967069425137259
+    m_Size: {x: 0.1354386, y: 0.18}
+    m_SpecifySize: 1
+    m_Name: bolobrigadeiraodroetker355gtotal
+    m_Texture: {fileID: 0}

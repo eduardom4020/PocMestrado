@@ -45,7 +45,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-2437443403560552016
 Rigidbody:
@@ -96,6 +96,10 @@ MonoBehaviour:
     Prefab: {fileID: 3617364991486673981, guid: 6146e077f307b3c428739e049bd477c5, type: 3}
   - MarkerName: doritosbuffalowings84
     Prefab: {fileID: 7977025079926396420, guid: 16b9682f7100b5f4ea902c41ea97472d, type: 3}
+  - MarkerName: sopaomaggicostelaclegumes200g
+    Prefab: {fileID: 477728649416541037, guid: 0cd2212588174084e890d65d81ffa1fe, type: 3}
+  - MarkerName: bolobrigadeiraodroetker355gtotal
+    Prefab: {fileID: 195675540039261551, guid: d52c9d7aef1eb1f49a5ccf9c53a3270a, type: 3}
 --- !u!114 &-2822763008728497872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +115,13 @@ MonoBehaviour:
   CombinedRepresentations:
   - PrefabA: {fileID: 3617364991486673981, guid: 6146e077f307b3c428739e049bd477c5, type: 3}
     PrefabB: {fileID: 7977025079926396420, guid: 16b9682f7100b5f4ea902c41ea97472d, type: 3}
-    CombinedRepresentation: {fileID: 4294254911585954438, guid: fd45af59f62537a46ba18904345d0350, type: 3}
+    CombinedRepresentation: {fileID: 5590763281575141566, guid: 31680885cd31ed54a90ca2b0f68b9cf0, type: 3}
+  - PrefabA: {fileID: 5590763281575141566, guid: 31680885cd31ed54a90ca2b0f68b9cf0, type: 3}
+    PrefabB: {fileID: 477728649416541037, guid: 0cd2212588174084e890d65d81ffa1fe, type: 3}
+    CombinedRepresentation: {fileID: 4248594937290612077, guid: 3872a34523ff15643b42b274431c30f1, type: 3}
+  - PrefabA: {fileID: 4248594937290612077, guid: 3872a34523ff15643b42b274431c30f1, type: 3}
+    PrefabB: {fileID: 195675540039261551, guid: d52c9d7aef1eb1f49a5ccf9c53a3270a, type: 3}
+    CombinedRepresentation: {fileID: 2216547423990527280, guid: 6333e644c46b8f64f8f05624f74bbd49, type: 3}
   - PrefabA: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
     PrefabB: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
     CombinedRepresentation: {fileID: 2497849572246210711, guid: aa39d0e34eeee1147b73a7be2d79c88e, type: 3}
