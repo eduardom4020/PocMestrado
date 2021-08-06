@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Representation-Cube
   - Representation-Cylinder
+  - Representation-Piechart
   layers:
   - Default
   - TransparentFX

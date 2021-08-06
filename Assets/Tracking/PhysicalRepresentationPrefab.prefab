@@ -128,16 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f41df1ccf8611742bbeaeeb5c1fc704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CombinedRepresentations:
-  - PrefabA: {fileID: 3617364991486673981, guid: 6146e077f307b3c428739e049bd477c5, type: 3}
-    PrefabB: {fileID: 7977025079926396420, guid: 16b9682f7100b5f4ea902c41ea97472d, type: 3}
-    CombinedRepresentation: {fileID: 5590763281575141566, guid: 31680885cd31ed54a90ca2b0f68b9cf0, type: 3}
-  - PrefabA: {fileID: 5590763281575141566, guid: 31680885cd31ed54a90ca2b0f68b9cf0, type: 3}
-    PrefabB: {fileID: 477728649416541037, guid: 0cd2212588174084e890d65d81ffa1fe, type: 3}
-    CombinedRepresentation: {fileID: 4248594937290612077, guid: 3872a34523ff15643b42b274431c30f1, type: 3}
-  - PrefabA: {fileID: 4248594937290612077, guid: 3872a34523ff15643b42b274431c30f1, type: 3}
-    PrefabB: {fileID: 195675540039261551, guid: d52c9d7aef1eb1f49a5ccf9c53a3270a, type: 3}
-    CombinedRepresentation: {fileID: 2216547423990527280, guid: 6333e644c46b8f64f8f05624f74bbd49, type: 3}
-  - PrefabA: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
-    PrefabB: {fileID: 6610503646846481186, guid: 268bbcd424f8bb94996014fcc7ad9d4f, type: 3}
-    CombinedRepresentation: {fileID: 2497849572246210711, guid: aa39d0e34eeee1147b73a7be2d79c88e, type: 3}
+  CombinedRepresentations: []
